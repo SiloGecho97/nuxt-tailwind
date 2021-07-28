@@ -3,31 +3,31 @@ import http from "./http_common";
 
 class CustomerDataService {
     getAll() {
-        return http.get("/costumer");
+        return http.get("/customer");
     }
 
     get(id) {
-        return http.get(`/costumer/${id}`);
+        return http.get(`/customer/${id}`);
     }
 
     create(data) {
-        return http.post("/costumer", data);
+        return http.post("/customer", data);
     }
 
     update(id, data) {
-        return http.put(`/costumer/${id}`, data);
+        return http.put(`/customer/${id}`, data);
     }
 
     delete(id) {
-        return http.delete(`/costumer/${id}`);
+        return http.delete(`/customer/${id}`);
     }
 
     deleteAll() {
-        return http.delete(`/costumer`);
+        return http.delete(`/customer`);
     }
 
     findByTitle(title) {
-        return http.get(`/costumer?title=${title}`);
+        return http.get(`/customer?title=${title}`);
     }
 }
 
