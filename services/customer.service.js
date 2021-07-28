@@ -1,7 +1,7 @@
 import http from "./http_common";
 
 
-class TutorialDataService {
+class CustomerDataService {
     getAll() {
         return http.get("/costumer");
     }
@@ -31,4 +31,4 @@ class TutorialDataService {
     }
 }
 
-export default new TutorialDataService();
+export default new CustomerDataService();

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import TutorialDataService from "../services/TutorialDataService";
+import customerService from '~/services/customer.service';
 
 export default {
   name: "AddTutorial",
@@ -57,7 +57,7 @@ export default {
         description: this.tutorial.description
       };
 
-      TutorialDataService.create(data)
+      customerService.create(data)
         .then(response => {
           this.tutorial.id = response.data.id;
           console.log(response.data);
