@@ -6,12 +6,12 @@
             <header class="mx-2 my-4">
               <span class="text-lg text-purple-200 opacity-50">Pairing</span>
               <h1 class="text-4xl font-black text-white w-2/3">
-                Play Code, Earn Coin.
+               Business, Invoice
               </h1>
             </header>
             <div class="flex m-2 text-purple-400 uppercase">
-              <span class="mr-4 ">Play</span>
-              <span class="mr-4">Win</span>
+              <span class="mr-4 ">Code</span>
+              <span class="mr-4">Fun</span>
               <span class="mr-4">Share</span>
 
             </div> 
@@ -59,10 +59,10 @@
           </div>
           <div class="py-16 px-16 text-gray-700">
             <div class="mb-3 pt-0">
-              <span class="">Phone Number</span>
+              <span class="">E-mail Address</span>
               <input
-                type="text"
-                placeholder="Phone Number"
+                type="email"
+                placeholder="E-mail address"
                 class="my-2 px-3 py-3 placeholder-purpleGray-300 text-purpleGray-600 relative bg-white rounded text-sm border-0 shadow  outline-none focus:outline-none focus:ring w-full"
               />
             </div>
@@ -83,12 +83,13 @@
                 Keep me logged in
               </span>
             </div>
+            <Nuxt-link to='/customer'>
             <button
               class="bg-purple-800 w-full text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               type="button"
             >
               Login
-            </button>
+            </button></Nuxt-link>
             <div class="flex flex-col items-center my-6">
               <h1>
                 Don't you have account?
@@ -101,3 +102,4 @@
       </div>
     </div>
 </template>
+

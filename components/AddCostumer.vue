@@ -1,6 +1,8 @@
 <template>
   <div class="submit-form">
-    <div class="w-full bg-grey-500">
+    <div class="w-full bg-grey-500 py-8">
+        <Nuxt-link to="/contract" class="px-2 py-1 bg-indigo-600 rounded-md shadow-md text-gray-100">Back</Nuxt-link>
+
       <div class="container mx-auto py-8">
         <div class="w-96 mx-auto bg-white rounded shadow">
           <div
@@ -132,6 +134,7 @@ export default {
           this.tutorial.id = response.data.id
           // console.log(response.data)
           this.submitted = true
+          this.$router.push('/contract')
         })
         .catch((e) => {
           console.log(e)

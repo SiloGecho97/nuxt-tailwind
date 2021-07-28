@@ -4,11 +4,15 @@
       href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
       rel="stylesheet"
     />
-    <div class="flex items-center justify-center min-h-screen bg-gray-900">
+    <div class="mt-12 float-right mr-16">
+      <Nuxt-link to="/contract/add" class="bg-indigo-500 shadow-xl text-gray-100 text-md px-3 py-2 rounded-md">Add Contract</Nuxt-link>
+    </div>
+    <div class="flex flex-col items-center justify-center min-h-screen">
       <div class="col-span-12">
         <div class="overflow-auto lg:overflow-visible">
-          <table class="table text-gray-400 border-separate space-y-6 text-sm">
-            <thead class="bg-gray-800 text-gray-500">
+          <h1 class="text-xl text-gray-700 font-bold">Contract List</h1>
+          <table class="table text-gray-800 border-separate space-y-4 text-sm">
+            <thead class="bg-gray-200 text-gray-500">
               <tr>
                 <th class="p-3">Name</th>
                 <th class="p-3 text-left">Category</th>
@@ -22,7 +26,7 @@
               :key="index"
               @click="setActiveTutorial(tutorial, index)"
             >
-              <tr class="bg-gray-800">
+              <tr class="bg-gray-200">
                 <td class="p-3">
                   <div class="flex align-items-center">
                     <img
