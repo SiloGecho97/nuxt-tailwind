@@ -57,13 +57,18 @@
 import customerService from '~/services/customer.service';
 
 export default {
-  name: "tutorial",
+  name: "Tutorial",
   data() {
     return {
       currentTutorial: null,
       message: ''
     };
   },
+  mounted() {
+    this.message = '';
+    this.getTutorial(this.$route.params.id);
+  },
+  
   methods: {
     getTutorial(id) {
       customerService.get(id)
@@ -115,10 +120,6 @@ export default {
           console.log(e);
         });
     }
-  },
-  mounted() {
-    this.message = '';
-    this.getTutorial(this.$route.params.id);
   }
 };
 </script>

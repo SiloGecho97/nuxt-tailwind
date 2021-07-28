@@ -11,7 +11,7 @@ class CustomerDataService {
     }
 
     create(data) {
-        return http.post("/customer", data);
+        return http.post("/contract", data);
     }
 
     update(id, data) {

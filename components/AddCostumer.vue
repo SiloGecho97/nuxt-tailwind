@@ -1,84 +1,154 @@
 <template>
   <div class="submit-form">
-    <div v-if="!submitted">
-      <div class="form-group">
-        <label for="title">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          id="title"
-          required
-          v-model="tutorial.title"
-          name="title"
-        />
+    <div class="w-full bg-grey-500">
+      <div class="container mx-auto py-8">
+        <div class="w-96 mx-auto bg-white rounded shadow">
+          <div
+            class="
+              mx-16
+              py-4
+              px-8
+              text-black text-xl
+              font-bold
+              border-b border-grey-500
+            "
+          >
+            Contract Form
+          </div>
+
+          <form id="Contract_Form" name="student_application">
+            <div class="py-4 px-8">
+              <div class="mb-4">
+                <label class="block text-grey-darker text-sm font-bold mb-2"
+                  >Name
+                </label>
+                <input
+                  v-model="tutorial.name"
+                  class="border rounded w-full py-2 px-3 text-grey-darker"
+                  type="text"
+                  name="name"
+                  value=""
+                  placeholder="Enter Contract Name"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-grey-darker text-sm font-bold mb-2"
+                  >Contract Type</label
+                >
+                <input
+                  v-model="tutorial.type"
+                  class="border rounded w-full py-2 px-3 text-grey-darker"
+                  type="text"
+                  name="type"
+                  value=""
+                  placeholder="Enter Contract Type"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label class="block text-grey-darker text-sm font-bold mb-2"
+                  >Price</label
+                >
+                <input
+                  v-model="tutorial.price"
+                  class="border rounded w-full py-2 px-3 text-grey-darker"
+                  type="number"
+                  name="price"
+                  value=""
+                  placeholder="Enter Your Price"
+                />
+                <p id="error_creater_id"></p>
+              </div>
+              <div class="mb-4">
+                <label class="block text-grey-darker text-sm font-bold mb-2"
+                  >Desciption
+                </label>
+                <textarea
+                  v-model="tutorial.description"
+                  class="border rounded w-full py-2 px-3 text-grey-darker"
+                  type="text"
+                  name="decription"
+                  value=""
+                  placeholder="Description here"
+                />
+              </div>
+
+              <div class="mb-4">
+                <button
+                  class="
+                    mb-2
+                    mx-16
+                    rounded-full
+                    py-1
+                    px-24
+                    bg-gradient-to-r
+                    from-green-400
+                    to-blue-500
+                  "
+                  @click="saveTutorial"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          class="form-control"
-          id="description"
-          required
-          v-model="tutorial.description"
-          name="description"
-        />
-      </div>
-
-      <button @click="saveTutorial" class="btn btn-success">Submit</button>
-    </div>
-
-    <div v-else>
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newTutorial">Add</button>
     </div>
   </div>
 </template>
 
 <script>
-import customerService from '~/services/customer.service';
+import customerService from '~/services/customer.service'
 
 export default {
-  name: "AddTutorial",
+  name: 'AddTutorial',
   data() {
     return {
       tutorial: {
         id: null,
-        title: "",
-        description: "",
-        published: false
+        name: '',
+        type: '',
+        price: '',
+        description: '',
+        published: false,
       },
-      submitted: false
-    };
+      submitted: false,
+    }
   },
   methods: {
     saveTutorial() {
       const data = {
-        title: this.tutorial.title,
-        description: this.tutorial.description
-      };
-
-      customerService.create(data)
-        .then(response => {
-          this.tutorial.id = response.data.id;
-          console.log(response.data);
-          this.submitted = true;
+        name: this.tutorial.name,
+        type: this.tutorial.type,
+        price: this.tutorial.price,
+        customerId: 1,
+        description: this.tutorial.description,
+      }
+      customerService
+        .create(data)
+        .then((response) => {
+          this.tutorial.id = response.data.id
+          // console.log(response.data)
+          this.submitted = true
         })
-        .catch(e => {
-          console.log(e);
-        });
+        .catch((e) => {
+          console.log(e)
+        })
     },
-    
+
     newTutorial() {
-      this.submitted = false;
-      this.tutorial = {};
-    }
-  }
-};
+      this.submitted = false
+      this.tutorial = {}
+    },
+  },
+}
 </script>
 
 <style>
 .submit-form {
-  max-width: 300px;
+  max-width: 500px;
   margin: auto;
 }
 </style>
